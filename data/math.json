@@ -1,0 +1,105 @@
+{
+  "subject": "math",
+  "subjectName": "数学",
+  "units": [
+    {
+      "id": "math-01",
+      "name": "式の計算",
+      "subunits": [
+        {
+          "id": "math-01-01",
+          "name": "多項式の加法・減法",
+          "questions": [
+            {
+              "id": "math-01-01-001",
+              "question": "次の計算をしなさい。\n(3x + 2y) + (5x - 3y)",
+              "type": "input",
+              "answer": "8x - y",
+              "explanation": "同類項をまとめます。\n3x + 5x = 8x\n2y - 3y = -y\nよって、8x - y です。"
+            },
+            {
+              "id": "math-01-01-002",
+              "question": "次の計算をしなさい。\n(2a + 3b) - (a - 2b)",
+              "type": "input",
+              "answer": "a + 5b",
+              "explanation": "括弧を外して計算します。\n(2a + 3b) - (a - 2b) = 2a + 3b - a + 2b = a + 5b\nマイナスの括弧を外すときは、符号が変わります。"
+            },
+            {
+              "id": "math-01-01-003",
+              "question": "次の計算をしなさい。\n(4x² + 3x - 1) + (2x² - 5x + 3)",
+              "type": "input",
+              "answer": "6x² - 2x + 2",
+              "explanation": "同類項をまとめます。\nx²の項: 4x² + 2x² = 6x²\nxの項: 3x - 5x = -2x\n定数項: -1 + 3 = 2\nよって、6x² - 2x + 2 です。"
+            }
+          ]
+        },
+        {
+          "id": "math-01-02",
+          "name": "単項式の乗法・除法",
+          "questions": [
+            {
+              "id": "math-01-02-001",
+              "question": "次の計算をしなさい。\n3a × 4b",
+              "type": "input",
+              "answer": "12ab",
+              "explanation": "係数同士をかけ、文字もかけます。\n3 × 4 = 12\na × b = ab\nよって、12ab です。"
+            },
+            {
+              "id": "math-01-02-002",
+              "question": "次の計算をしなさい。\n6x²y ÷ 2xy",
+              "type": "input",
+              "answer": "3x",
+              "explanation": "係数同士をわり、文字もわります。\n6 ÷ 2 = 3\nx² ÷ x = x\ny ÷ y = 1（省略）\nよって、3x です。"
+            },
+            {
+              "id": "math-01-02-003",
+              "question": "次の計算をしなさい。\n(-2a)²",
+              "type": "input",
+              "answer": "4a²",
+              "explanation": "(-2a)² = (-2a) × (-2a) = 4a²\n負の数を2乗すると正の数になります。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "math-02",
+      "name": "連立方程式",
+      "subunits": [
+        {
+          "id": "math-02-01",
+          "name": "加減法・代入法",
+          "questions": [
+            {
+              "id": "math-02-01-001",
+              "question": "次の連立方程式を解きなさい。\nx + y = 5\nx - y = 1",
+              "type": "input",
+              "answer": "x = 3, y = 2",
+              "explanation": "加減法を使います。\n2つの式を足すと: (x + y) + (x - y) = 5 + 1\n2x = 6\nx = 3\nx = 3を最初の式に代入すると: 3 + y = 5\ny = 2\nよって、x = 3, y = 2 です。"
+            },
+            {
+              "id": "math-02-01-002",
+              "question": "次の連立方程式を解きなさい。\n2x + 3y = 7\nx = 2y - 1",
+              "type": "input",
+              "answer": "x = 1, y = 1",
+              "explanation": "代入法を使います。\n2つ目の式を1つ目の式に代入すると:\n2(2y - 1) + 3y = 7\n4y - 2 + 3y = 7\n7y = 9\ny = 1（約分）\nx = 2 × 1 - 1 = 1\nよって、x = 1, y = 1 です。"
+            }
+          ]
+        },
+        {
+          "id": "math-02-02",
+          "name": "文章問題",
+          "questions": [
+            {
+              "id": "math-02-02-001",
+              "question": "りんご3個とみかん5個で580円、りんご5個とみかん3個で620円です。りんご1個の値段を求めなさい。",
+              "type": "input",
+              "answer": "80円",
+              "explanation": "りんご1個の値段をx円、みかん1個の値段をy円とすると:\n3x + 5y = 580\n5x + 3y = 620\nこれを解くと、x = 80, y = 68\nよって、りんご1個は80円です。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

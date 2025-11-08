@@ -1,0 +1,65 @@
+{
+  "subject": "japanese",
+  "subjectName": "国語",
+  "units": [
+    {
+      "id": "jpn-01",
+      "name": "漢字",
+      "subunits": [
+        {
+          "id": "jpn-01-01",
+          "name": "漢字の読み",
+          "questions": [
+            {
+              "id": "jpn-01-01-001",
+              "question": "次の漢字の読みをひらがなで書きなさい。\n「勉強」",
+              "type": "input",
+              "answer": "べんきょう",
+              "explanation": "「勉強」は「べんきょう」と読みます。学習するという意味です。"
+            },
+            {
+              "id": "jpn-01-01-002",
+              "question": "次の漢字の読みをひらがなで書きなさい。\n「図書館」",
+              "type": "input",
+              "answer": "としょかん",
+              "explanation": "「図書館」は「としょかん」と読みます。本を保管する施設です。"
+            }
+          ]
+        },
+        {
+          "id": "jpn-01-02",
+          "name": "漢字の書き",
+          "questions": [
+            {
+              "id": "jpn-01-02-001",
+              "question": "次の読みを漢字で書きなさい。\n「がっこう」",
+              "type": "input",
+              "answer": "学校",
+              "explanation": "「がっこう」は「学校」と書きます。教育を行う施設です。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jpn-02",
+      "name": "文法",
+      "subunits": [
+        {
+          "id": "jpn-02-01",
+          "name": "品詞",
+          "questions": [
+            {
+              "id": "jpn-02-01-001",
+              "question": "次の語の品詞を答えなさい。\n「美しい」",
+              "type": "choice",
+              "choices": ["名詞", "動詞", "形容詞", "副詞"],
+              "answer": 2,
+              "explanation": "「美しい」は形容詞です。物事の性質や状態を表す言葉です。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,64 +1,104 @@
-# 🐍 Snake Game Showcase
+# 💩 爆走！うんちドリル
 
-A modern, polished Snake game built with HTML5 Canvas, CSS3, and vanilla JavaScript. This project demonstrates various programming capabilities including game development, canvas manipulation, state management, and responsive design.
+中学2年生向けの学習クイズゲームです。5教科（英語・数学・国語・理科・社会）の単元を選んで問題を解き、正解すると「うんちレーサー」がスピードアップしてゴール（黄金のトイレ）を目指します。
 
-## 🎮 Features
+## 🎮 ゲームの特徴
 
-- **Smooth Gameplay**: Classic Snake mechanics with responsive controls
-- **Modern UI**: Beautiful gradient design with smooth animations
-- **Score Tracking**: Real-time score display with persistent high score (localStorage)
-- **Responsive Design**: Works on desktop and mobile devices
-- **Multiple Control Methods**: 
-  - Keyboard: Arrow keys or WASD
-  - Touch: On-screen control buttons for mobile
-- **Visual Polish**: 
-  - Grid-based game board
-  - Animated snake with eyes that follow direction
-  - Shiny food with highlight effect
-  - Smooth game over and start screens
+- **苦手問題の自動優先出題**: AIが間違えやすい問題を自動で優先的に出題し、テスト前の弱点克服を強力にサポート
+- **5教科対応**: 英語、数学、国語、理科、社会の5教科に対応
+- **詳細な解説**: 不正解時には即座に詳しい解説を表示
+- **学習記録の可視化**: 日別・週別・月別の成績グラフで学習の進捗を確認
+- **モバイル対応**: PC・スマートフォンの両方で快適にプレイ可能
 
-## 🚀 How to Play
+## 🚀 使い方
 
-1. Open `index.html` in a web browser
-2. Click "Start Game" or press Enter
-3. Use arrow keys, WASD, or on-screen buttons to control the snake
-4. Eat the red food to grow and increase your score
-5. Avoid hitting walls or yourself!
+1. `index.html` をWebブラウザで開きます
+2. トップ画面から「ドリル開始」を選択
+3. 科目 → 単元 → 問題数を選択して「レース開始！」をクリック
+4. 問題に答えながら、うんちレーサーをゴールまで導きます
 
-## 🛠️ Technologies Used
-
-- **HTML5**: Semantic markup and canvas element
-- **CSS3**: Modern styling with gradients, animations, and responsive design
-- **Vanilla JavaScript**: ES6+ features, game logic, and state management
-- **Canvas API**: 2D rendering and game graphics
-- **LocalStorage API**: High score persistence
-
-## 📁 Project Structure
+## 📁 プロジェクト構造
 
 ```
-├── index.html    # Main HTML structure
-├── style.css     # Styling and responsive design
-├── game.js       # Game logic and mechanics
-└── README.md     # This file
+├── index.html          # メインHTMLファイル
+├── style.css           # スタイルシート
+├── game.js             # ゲームロジック
+├── data/               # 問題データベース
+│   ├── math.json       # 数学の問題
+│   ├── english.json    # 英語の問題
+│   ├── japanese.json   # 国語の問題
+│   ├── science.json    # 理科の問題
+│   └── social.json     # 社会の問題
+└── README.md           # このファイル
 ```
 
-## 💡 Key Programming Concepts Demonstrated
+## ⚙️ システム仕様
 
-- **Game Loop**: Continuous game state updates
-- **Collision Detection**: Wall and self-collision checks
-- **State Management**: Game state, score, and high score tracking
-- **Event Handling**: Keyboard and touch input handling
-- **Canvas Rendering**: 2D graphics and animations
-- **Local Storage**: Data persistence
-- **Responsive Design**: Mobile-friendly layout
-- **Code Organization**: Clean, modular, and maintainable code
+### 苦手問題優先出題アルゴリズム
 
-## 🎯 Game Mechanics
+- 各問題の解答履歴をlocalStorageに保存
+- 正答率が低い問題ほど高い優先度で出題
+- 未解答の問題は最高優先度で出題
+- 重み付けランダム抽選により、同じ問題ばかり出ることを防止
 
-- Snake moves continuously in the current direction
-- Eating food increases score by 10 points
-- Snake grows by one segment when food is eaten
-- Game ends on wall collision or self-collision
-- High score is saved automatically
+### データ保存
 
-Enjoy the game! 🎉
+- **解答履歴**: 問題IDごとの解答回数と正答数を保存
+- **学習記録**: 日付、科目、問題数、正答数、正答率、かかった時間、獲得U-Pを保存
+- **設定**: BGM、効果音のON/OFF設定を保存
+
+## 🎯 機能一覧
+
+### トップ画面
+- ドリル開始
+- 成績グラフ
+- 設定
+
+### ドリル設定画面
+- 科目選択（5教科から選択）
+- 単元選択（ツリー構造で複数選択可能）
+- 問題数選択（10問、20問、50問、全問）
+
+### クイズ画面
+- レース進捗バー（うんちレーサーの位置表示）
+- 問題表示（科目名、単元名、問題文）
+- 4択問題・入力問題に対応
+- 不正解時の解説モーダル
+
+### リザルト画面
+- 正答数、かかった時間、獲得U-P、正答率の表示
+- 成績に応じたメッセージ表示
+
+### 成績グラフ画面
+- 日別・週別・月別のグラフ表示
+- カレンダー表示（学習した日付にうんちマーク）
+
+### 設定画面
+- BGM、効果音のON/OFF
+- 学習記録のリセット機能
+
+## 🛠️ 技術スタック
+
+- **HTML5**: セマンティックマークアップ
+- **CSS3**: モダンなスタイリング、アニメーション、レスポンシブデザイン
+- **Vanilla JavaScript**: ES6+、ゲームロジック、localStorage管理
+- **JSON**: 問題データベース
+
+## 📝 ライセンス
+
+このプロジェクトは教育目的で作成されています。
+
+## 🎨 デザインコンセプト
+
+- 「うんち」テーマを活用した親しみやすいデザイン
+- 中学2年生（特に男子）が楽しめるUI/UX
+- モバイルファーストのレスポンシブデザイン
+- 直感的な操作で学習に集中できるインターフェース
+
+## 🔮 今後の拡張予定
+
+- ランキング機能
+- 友達と競う要素
+- レーサーのカスタマイズ機能（U-Pで購入）
+- より多くの問題データの追加
+- 音声効果音の実装

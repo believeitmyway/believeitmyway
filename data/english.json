@@ -1,0 +1,84 @@
+{
+  "subject": "english",
+  "subjectName": "英語",
+  "units": [
+    {
+      "id": "eng-01",
+      "name": "現在形・過去形",
+      "subunits": [
+        {
+          "id": "eng-01-01",
+          "name": "be動詞の現在形・過去形",
+          "questions": [
+            {
+              "id": "eng-01-01-001",
+              "question": "次の文を過去形にしなさい。\nI am a student.",
+              "type": "input",
+              "answer": "I was a student.",
+              "explanation": "am の過去形は was です。\nI の場合は was を使います。"
+            },
+            {
+              "id": "eng-01-01-002",
+              "question": "次の文を現在形にしなさい。\nThey were happy yesterday.",
+              "type": "input",
+              "answer": "They are happy now.",
+              "explanation": "were の現在形は are です。\nThey の場合は are を使います。"
+            }
+          ]
+        },
+        {
+          "id": "eng-01-02",
+          "name": "一般動詞の現在形・過去形",
+          "questions": [
+            {
+              "id": "eng-01-02-001",
+              "question": "次の動詞を過去形にしなさい。\ngo",
+              "type": "input",
+              "answer": "went",
+              "explanation": "go の過去形は went です。不規則変化動詞です。"
+            },
+            {
+              "id": "eng-01-02-002",
+              "question": "次の文を過去形にしなさい。\nShe plays tennis every day.",
+              "type": "input",
+              "answer": "She played tennis yesterday.",
+              "explanation": "plays の過去形は played です。\nevery day は yesterday に変更します。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eng-02",
+      "name": "未来形・進行形",
+      "subunits": [
+        {
+          "id": "eng-02-01",
+          "name": "未来形（will, be going to）",
+          "questions": [
+            {
+              "id": "eng-02-01-001",
+              "question": "次の日本語を英語にしなさい。\n私は明日、学校に行きます。",
+              "type": "input",
+              "answer": "I will go to school tomorrow.",
+              "explanation": "未来のことを表すときは will + 動詞の原形 を使います。"
+            }
+          ]
+        },
+        {
+          "id": "eng-02-02",
+          "name": "現在進行形・過去進行形",
+          "questions": [
+            {
+              "id": "eng-02-02-001",
+              "question": "次の文を現在進行形にしなさい。\nHe reads a book.",
+              "type": "input",
+              "answer": "He is reading a book.",
+              "explanation": "現在進行形は be動詞 + 動詞のing形 です。\nread のing形は reading です。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

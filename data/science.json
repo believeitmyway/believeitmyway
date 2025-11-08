@@ -1,0 +1,58 @@
+{
+  "subject": "science",
+  "subjectName": "理科",
+  "units": [
+    {
+      "id": "sci-01",
+      "name": "化学変化",
+      "subunits": [
+        {
+          "id": "sci-01-01",
+          "name": "化学反応式",
+          "questions": [
+            {
+              "id": "sci-01-01-001",
+              "question": "マグネシウムが燃焼するときの化学反応式を書きなさい。",
+              "type": "input",
+              "answer": "2Mg + O₂ → 2MgO",
+              "explanation": "マグネシウム（Mg）と酸素（O₂）が反応して酸化マグネシウム（MgO）ができます。\n係数を合わせると、2Mg + O₂ → 2MgO です。"
+            }
+          ]
+        },
+        {
+          "id": "sci-01-02",
+          "name": "質量保存の法則",
+          "questions": [
+            {
+              "id": "sci-01-02-001",
+              "question": "化学変化の前後で、物質の質量の合計はどうなるか？",
+              "type": "choice",
+              "choices": ["増える", "減る", "変わらない", "どちらともいえない"],
+              "answer": 2,
+              "explanation": "質量保存の法則により、化学変化の前後で物質の質量の合計は変わりません。"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sci-02",
+      "name": "電流",
+      "subunits": [
+        {
+          "id": "sci-02-01",
+          "name": "オームの法則",
+          "questions": [
+            {
+              "id": "sci-02-01-001",
+              "question": "電圧が6V、抵抗が2Ωのとき、電流は何Aか？",
+              "type": "input",
+              "answer": "3",
+              "explanation": "オームの法則より、電流 = 電圧 ÷ 抵抗\n6V ÷ 2Ω = 3A\nよって、3A です。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

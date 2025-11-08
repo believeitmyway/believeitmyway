@@ -1,57 +1,223 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake Game - Showcase</title>
+    <title>爆走！うんちドリル</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="game-header">
-            <h1>🐍 Snake Game</h1>
-            <div class="score-board">
-                <div class="score-item">
-                    <span class="label">Score:</span>
-                    <span id="score">0</span>
-                </div>
-                <div class="score-item">
-                    <span class="label">High Score:</span>
-                    <span id="high-score">0</span>
-                </div>
+    <!-- トップ画面 -->
+    <div id="topScreen" class="screen active">
+        <div class="top-container">
+            <h1 class="game-title">💩 爆走！うんちドリル</h1>
+            <div class="character-container">
+                <div class="poop-racer">💩</div>
+                <div class="toilet-goal">🚽</div>
             </div>
-        </div>
-        
-        <div class="game-wrapper">
-            <canvas id="gameCanvas"></canvas>
-            <div id="gameOver" class="game-over hidden">
-                <h2>Game Over!</h2>
-                <p>Final Score: <span id="finalScore">0</span></p>
-                <button id="restartBtn" class="restart-btn">Play Again</button>
+            <div class="menu-buttons">
+                <button class="menu-btn" id="startDrillBtn">
+                    <span class="btn-icon">📚</span>
+                    <span class="btn-text">ドリル開始</span>
+                </button>
+                <button class="menu-btn" id="statsBtn">
+                    <span class="btn-icon">📊</span>
+                    <span class="btn-text">成績グラフ</span>
+                </button>
+                <button class="menu-btn" id="settingsBtn">
+                    <span class="btn-icon">⚙️</span>
+                    <span class="btn-text">設定</span>
+                </button>
             </div>
-            <div id="startScreen" class="start-screen">
-                <h2>Ready to Play?</h2>
-                <p>Use arrow keys or WASD to control the snake</p>
-                <button id="startBtn" class="start-btn">Start Game</button>
-            </div>
-        </div>
-        
-        <div class="controls">
-            <div class="control-buttons">
-                <button class="control-btn" data-direction="up">↑</button>
-                <div class="control-row">
-                    <button class="control-btn" data-direction="left">←</button>
-                    <button class="control-btn" data-direction="down">↓</button>
-                    <button class="control-btn" data-direction="right">→</button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="instructions">
-            <p><strong>Controls:</strong> Arrow Keys / WASD | Mobile: Use buttons below</p>
         </div>
     </div>
-    
+
+    <!-- ドリル設定画面 -->
+    <div id="drillSetupScreen" class="screen">
+        <div class="setup-container">
+            <h2>ドリル設定</h2>
+            
+            <!-- ステップ1: 科目選択 -->
+            <div class="setup-step" id="step1">
+                <h3>ステップ1: 科目を選択</h3>
+                <div class="subject-grid">
+                    <button class="subject-btn" data-subject="english">
+                        <span class="subject-icon">🇬🇧</span>
+                        <span class="subject-name">英語</span>
+                    </button>
+                    <button class="subject-btn" data-subject="math">
+                        <span class="subject-icon">🔢</span>
+                        <span class="subject-name">数学</span>
+                    </button>
+                    <button class="subject-btn" data-subject="japanese">
+                        <span class="subject-icon">📖</span>
+                        <span class="subject-name">国語</span>
+                    </button>
+                    <button class="subject-btn" data-subject="science">
+                        <span class="subject-icon">🔬</span>
+                        <span class="subject-name">理科</span>
+                    </button>
+                    <button class="subject-btn" data-subject="social">
+                        <span class="subject-icon">🌍</span>
+                        <span class="subject-name">社会</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- ステップ2: 単元選択 -->
+            <div class="setup-step hidden" id="step2">
+                <h3>ステップ2: 単元を選択</h3>
+                <div id="unitTree" class="unit-tree"></div>
+            </div>
+
+            <!-- ステップ3: 問題数選択 -->
+            <div class="setup-step hidden" id="step3">
+                <h3>ステップ3: 問題数を選択</h3>
+                <div class="question-count-options">
+                    <button class="count-btn" data-count="10">10問</button>
+                    <button class="count-btn" data-count="20">20問</button>
+                    <button class="count-btn" data-count="50">50問</button>
+                    <button class="count-btn" data-count="all">全問</button>
+                </div>
+            </div>
+
+            <div class="setup-actions">
+                <button class="back-btn" id="backToTopBtn">トップに戻る</button>
+                <button class="start-race-btn hidden" id="startRaceBtn">レース開始！</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- クイズ画面 -->
+    <div id="quizScreen" class="screen">
+        <div class="quiz-container">
+            <!-- レース進捗バー -->
+            <div class="race-progress">
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                    <div class="racer-position" id="racerPosition">💩</div>
+                    <div class="goal-icon">🚽</div>
+                </div>
+                <div class="progress-info">
+                    <span>問題 <span id="currentQuestionNum">1</span> / <span id="totalQuestions">10</span></span>
+                    <span>U-P: <span id="currentUP">0</span></span>
+                </div>
+            </div>
+
+            <!-- 問題表示エリア -->
+            <div class="question-area">
+                <div class="question-header">
+                    <span class="subject-badge" id="questionSubject">数学</span>
+                    <span class="unit-badge" id="questionUnit">式の計算</span>
+                </div>
+                <div class="question-text" id="questionText">問題文がここに表示されます</div>
+            </div>
+
+            <!-- 解答エリア -->
+            <div class="answer-area" id="answerArea">
+                <!-- 選択肢が動的に挿入される -->
+            </div>
+
+            <!-- 解説モーダル -->
+            <div id="explanationModal" class="modal hidden">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>💡 解説</h3>
+                        <button class="close-modal" id="closeExplanationBtn">×</button>
+                    </div>
+                    <div class="modal-body" id="explanationText">
+                        解説がここに表示されます
+                    </div>
+                    <button class="next-question-btn" id="nextQuestionBtn">次の問題へ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- リザルト画面 -->
+    <div id="resultScreen" class="screen">
+        <div class="result-container">
+            <h2>🏆 レース終了！</h2>
+            <div class="result-stats">
+                <div class="stat-item">
+                    <span class="stat-label">正答数</span>
+                    <span class="stat-value" id="resultCorrect">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">かかった時間</span>
+                    <span class="stat-value" id="resultTime">0秒</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">獲得U-P</span>
+                    <span class="stat-value" id="resultUP">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">正答率</span>
+                    <span class="stat-value" id="resultRate">0%</span>
+                </div>
+            </div>
+            <div class="result-message" id="resultMessage"></div>
+            <div class="result-actions">
+                <button class="result-btn" id="retryBtn">もう一度</button>
+                <button class="result-btn" id="backToTopFromResultBtn">トップに戻る</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 成績グラフ画面 -->
+    <div id="statsScreen" class="screen">
+        <div class="stats-container">
+            <h2>📊 成績グラフ</h2>
+            
+            <!-- タブ切り替え -->
+            <div class="stats-tabs">
+                <button class="tab-btn active" data-tab="daily">日別</button>
+                <button class="tab-btn" data-tab="weekly">週別</button>
+                <button class="tab-btn" data-tab="monthly">月別</button>
+                <button class="tab-btn" data-tab="unit">単元別</button>
+            </div>
+
+            <!-- グラフ表示エリア -->
+            <div class="chart-container">
+                <canvas id="statsChart"></canvas>
+            </div>
+
+            <!-- カレンダー表示 -->
+            <div class="calendar-container">
+                <div id="calendar"></div>
+            </div>
+
+            <button class="back-btn" id="backToTopFromStatsBtn">トップに戻る</button>
+        </div>
+    </div>
+
+    <!-- 設定画面 -->
+    <div id="settingsScreen" class="screen">
+        <div class="settings-container">
+            <h2>⚙️ 設定</h2>
+            
+            <div class="setting-item">
+                <label>
+                    <input type="checkbox" id="bgmToggle">
+                    <span>BGM</span>
+                </label>
+            </div>
+            
+            <div class="setting-item">
+                <label>
+                    <input type="checkbox" id="soundToggle">
+                    <span>効果音</span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <button class="danger-btn" id="resetDataBtn">学習記録をリセット</button>
+            </div>
+
+            <button class="back-btn" id="backToTopFromSettingsBtn">トップに戻る</button>
+        </div>
+    </div>
+
     <script src="game.js"></script>
 </body>
 </html>
