@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game - Showcase</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="game-header">
+            <h1>🐍 Snake Game</h1>
+            <div class="score-board">
+                <div class="score-item">
+                    <span class="label">Score:</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="label">High Score:</span>
+                    <span id="high-score">0</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="game-wrapper">
+            <canvas id="gameCanvas"></canvas>
+            <div id="gameOver" class="game-over hidden">
+                <h2>Game Over!</h2>
+                <p>Final Score: <span id="finalScore">0</span></p>
+                <button id="restartBtn" class="restart-btn">Play Again</button>
+            </div>
+            <div id="startScreen" class="start-screen">
+                <h2>Ready to Play?</h2>
+                <p>Use arrow keys or WASD to control the snake</p>
+                <button id="startBtn" class="start-btn">Start Game</button>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <div class="control-buttons">
+                <button class="control-btn" data-direction="up">↑</button>
+                <div class="control-row">
+                    <button class="control-btn" data-direction="left">←</button>
+                    <button class="control-btn" data-direction="down">↓</button>
+                    <button class="control-btn" data-direction="right">→</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <p><strong>Controls:</strong> Arrow Keys / WASD | Mobile: Use buttons below</p>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
